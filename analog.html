@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="analogclock.css">
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<script>
+    setInterval(() => {
+    let currentDate = new Date();
+    let timeInHour = currentDate.getHours();
+    let timeInMinutes = currentDate.getMinutes();
+    let timeInSeconds = currentDate.getSeconds();
+    let hourHandTurn = (30 * timeInHour + timeInMinutes / 2);
+    let minuteHandTurn = 6 * timeInMinutes;
+    let secondHandTurn = 6 * timeInSeconds;
+    document.getElementById('sec--hand').style.transform = `rotate(${secondHandTurn}deg)`;
+    document.getElementById('min--hand').style.transform = `rotate(${minuteHandTurn}deg)`;
+    document.getElementById('hour--hand').style.transform = `rotate(${hourHandTurn}deg)`;
+}, 1000);
+</script>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="http://127.0.0.1:5500/project1.html#">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="http://127.0.0.1:5500/stopwatch.html">Stopwatch</a>
+            </li>
+            </ul>
+          
+        </div>
+      </nav>
+    <div class="heading"> 
+        <p>ANALOG CLOCK</p>
+    </div>
+    <section class="page--section"> 
+        <div id="clock--box"> 
+            <div id="hour--hand"></div> 
+            <div id="min--hand"></div>
+            <div id="sec--hand">
+                <div class="round--dot"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
